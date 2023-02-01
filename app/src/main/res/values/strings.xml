@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">WeatherApp</string>
+
+    <string name="error_network">Oops something went wrong</string>
+    <string name="error_no_city_found">City not found</string>
+    <string name="error_no_network">No network connection</string>
+    <string name="error_network_timeout">Network request timed out</string>
+    <string name="error_message_default">Please try again</string>
+    <string name="error_title_default">Something went wrong</string>
 </resources>

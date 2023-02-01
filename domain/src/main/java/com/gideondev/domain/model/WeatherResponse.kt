@@ -65,19 +65,19 @@ data class Sys(
 data class Coord(
 
 	@field:SerializedName("lon")
-	val lon: Any? = null,
+	val lon: Double? = null,
 
 	@field:SerializedName("lat")
-	val lat: Any? = null
+	val lat: Double? = null
 )
 
 data class Main(
 
 	@field:SerializedName("temp")
-	val temp: Any? = null,
+	val temp: Double? = null,
 
 	@field:SerializedName("temp_min")
-	val tempMin: Any? = null,
+	val tempMin: Double? = null,
 
 	@field:SerializedName("humidity")
 	val humidity: Int? = null,
@@ -86,10 +86,10 @@ data class Main(
 	val pressure: Int? = null,
 
 	@field:SerializedName("feels_like")
-	val feelsLike: Any? = null,
+	val feelsLike: Double? = null,
 
 	@field:SerializedName("temp_max")
-	val tempMax: Any? = null
+	val tempMax: Double? = null
 )
 
 data class WeatherItem(
@@ -113,7 +113,7 @@ data class Wind(
 	val deg: Int? = null,
 
 	@field:SerializedName("speed")
-	val speed: Any? = null
+	val speed: Double? = null
 )
 
 data class Clouds(
