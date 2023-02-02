@@ -1,5 +1,7 @@
 package com.gideondev.weatherapp
 
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import com.gideondev.domain.usecase.WeatherUseCase
 import com.gideondev.testdata.builder.WeatherResponseBuilder
 import com.gideondev.testdata.coroutine.CoroutineTestRule
@@ -14,18 +16,21 @@ import org.junit.After
 import org.junit.Before
 import org.junit.Test
 import org.mockito.Mockito
-import org.mockito.kotlin.given
-import org.mockito.kotlin.mock
+import org.mockito.kotlin.*
 
 @ExperimentalCoroutinesApi
 class WeatherViewModelTest {
     private val weatherUseCase: WeatherUseCase = mock()
+    private val notificationBuilder: NotificationCompat.Builder = mock()
+    private val notificationManager: NotificationManagerCompat = mock()
     private val weatherResponse = WeatherResponseBuilder.weatherResponse().build()
     private val dispatcherProvider = CoroutineTestRule().testDispatcherProvider
 
     private val weatherViewModel = WeatherViewModel(
         dispatcherProvider = dispatcherProvider,
         weatherUseCase = weatherUseCase,
+        notificationBuilder = notificationBuilder,
+        notificationManager = notificationManager,
     )
 
     @Before
@@ -43,12 +48,12 @@ class WeatherViewModelTest {
         runTest {
             given(
                 weatherUseCase.invoke(
-                    key = "34354878ghbdcdd",
-                    query = "Bournemouth",
+                    key = any(),
+                    query = any(),
                 )
             ).willReturn(weatherResponse)
 
-           val res =  weatherViewModel.getWeatherInfo("Bournemouth")
+            weatherViewModel.getWeatherInfo("london")
             assertThat(weatherViewModel.uiState.weather).isEqualTo(weatherResponse)
         }
 
@@ -57,8 +62,8 @@ class WeatherViewModelTest {
         runTest {
             Mockito.`when`(
                 weatherUseCase.invoke(
-                    key = "34354878ghbdcdd",
-                    query = "Bournemouth",
+                    key = any(),
+                    query = any(),
                 )
             ).thenThrow(RuntimeException())
             weatherViewModel.getWeatherInfo("Bournemouth")

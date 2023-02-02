@@ -40,6 +40,9 @@ data class WeatherResponse(
 	@field:SerializedName("base")
 	val base: String? = null,
 
+	@field:SerializedName("message")
+	val message: String? = null,
+
 	@field:SerializedName("wind")
 	val wind: Wind? = null
 )

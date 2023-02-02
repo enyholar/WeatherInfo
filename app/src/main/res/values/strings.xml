@@ -2,9 +2,27 @@
     <string name="app_name">WeatherApp</string>
 
     <string name="error_network">Oops something went wrong</string>
-    <string name="error_no_city_found">City not found</string>
+    <string name="error_no_city_found">City weather not found</string>
     <string name="error_no_network">No network connection</string>
     <string name="error_network_timeout">Network request timed out</string>
     <string name="error_message_default">Please try again</string>
     <string name="error_title_default">Something went wrong</string>
+    <string name="icn_search_clear_content_description">clear</string>
+    <string name="txt_temperature">Temperature</string>
+    <string name="txt_notification_required">Notification permission is required, to show notification</string>
+    <string name="txt_notification_permission_required">Notification permission is required, Please allow notification permission from setting</string>
+    <string name="txt_notification_permission">Notification Permission</string>
+    <string name="txt_alert">"Alert"</string>
+
+    <string name="search_clouds_title">Cloud cover</string>
+    <string name="search_rain_title">Rain amount</string>
+    <string name="search_snow_title">Snow amount</string>
+    <string name="search_humidity_title">Humidity</string>
+    <string name="search_wind_title">Wind</string>
+    <string name="search_wind_speed_title">Wind speed</string>
+    <string name="search_pressure_title">Pressure</string>
+    <string name="search_direction_title">Wind dir.</string>
+    <string name="current_temp_feels_like_title">Feels like</string>
+
+    <string name="ok">OK</string>
 </resources>

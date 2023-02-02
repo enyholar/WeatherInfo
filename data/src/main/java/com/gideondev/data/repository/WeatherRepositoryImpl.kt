@@ -24,7 +24,15 @@ class WeatherRepositoryImpl(
         }
         return when (networkCallResult) {
             is ApiSuccess -> networkCallResult.data
-            is ApiError -> throw Throwable(networkCallResult.message)
+            is ApiError -> {
+                if (networkCallResult.code == 404){
+                    throw Exception("not found")
+                }else{
+                    throw Throwable(networkCallResult.message)
+                }
+
+            }
+
             is ApiException -> throw networkCallResult.e
         }
     }
